@@ -23,21 +23,36 @@ db.connect(err=>{
     console.log('connected to database!')
 }});
 
-app.listen(3000, ()=>{
-    console.log('running...');
+app.listen(3000, () =>{
+    console.log('listenin');
 });
 
-app.get("/category", (req, res)=>{
-
-    let qr = 'select * from category'
+//get all categories 
+app.get("/category", (req, res) =>{
+    
+    let qr = 'SELECT * FROM CATEGORY'
     db.query(qr, (err, result)=>{
         if(err){
-            console.log('error receiving data!')
+            console.log(err)
         }else{
            if(result.length > 0){
-               res.send({message: 'category', data: result});
+               res.send({message: 'category list', data: result});
            }
+        }
+    });
+});
 
+//add new category 
+app.post("/category", (req, res) =>{
+
+    let name = req.body.CategoryName;
+    let qr = `INSERT INTO CATEGORY SET CategoryName =  '${name}'`
+
+    db.query(qr, (err, result) =>{
+        if(err){
+            console.log(err)
+        }else{ 
+            res.send({message: 'category created!', data: result});  
         }
     });
 });
