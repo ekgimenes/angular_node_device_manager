@@ -29,12 +29,12 @@ app.listen(3000, ()=>{
 
 app.get("/category", (req, res)=>{
 
-    let query = 'select * from category'
-    db.query =(query, (err, result)=>{
+    let qr = 'select * from category'
+    db.query(qr, (err, result)=>{
         if(err){
             console.log('error receiving data!')
         }else{
-           if(result.listen > 0){
+           if(result.length > 0){
                res.send({message: 'category', data: result});
            }
 
