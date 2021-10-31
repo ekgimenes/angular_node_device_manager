@@ -6,7 +6,8 @@ const app = express();
 app.use(cors());
 
 app.use(express.urlencoded({extended: true}));
-app.use(express.json()) 
+app.use(express.json());
+
 
 const db = mysql.createConnection({
     host:'localhost',
@@ -46,6 +47,9 @@ app.get("/category", (req, res) =>{
 app.post("/category", (req, res) =>{
 
     let name = req.body.CategoryName;
+    console.log(req)
+    console.log(req.body)
+    console.log(req.body.json)
     let qr = `INSERT INTO CATEGORY SET CategoryName =  '${name}'`
 
     db.query(qr, (err, result) =>{
@@ -53,6 +57,20 @@ app.post("/category", (req, res) =>{
             console.log(err)
         }else{ 
             res.send({message: 'category created!', data: result});  
+        }
+    });
+});
+
+//delete category 
+app.delete("/category", (req, res) =>{
+
+    let{id}  = req.query;
+    console.log(req)
+    let qr = `DELETE FROM CATEGORY WHERE Id  ='${id}'`
+    db.query(qr, (err, result) =>{
+        if(err){
+        }else{ 
+            res.send({message: 'category was removed!', data: result});  
         }
     });
 });
