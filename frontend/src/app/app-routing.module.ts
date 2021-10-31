@@ -1,17 +1,37 @@
 import {  NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateComponent } from './create/create.component';
-import { ReadComponent } from './read/read.component';
 import { CommonModule } from '@angular/common';
+import { CreatecategoryComponent } from './views/createcategory/createcategory.component';
+import { ReadcategoryComponent } from './views/readcategory/readcategory.component';
+import { ReaddeviceComponent } from './views/readdevice/readdevice.component';
+import { CreatedeviceComponent } from './views/createdevice/createdevice.component';
+import { CategoryComponent } from './views/category/category.component';
+import { DeviceComponent } from './views/device/device.component';
 
 const routes: Routes = [
   {
-    path:'create',
-     component: CreateComponent
+    path:'createcategory',
+     component: CreatecategoryComponent
   },
   {
-    path:'read',
-    component: ReadComponent
+    path:'readcategory',
+    component: ReadcategoryComponent
+  },
+  {
+    path:'createdevice',
+    component: CreatedeviceComponent
+  },
+  {
+    path:'readdevice',
+    component: ReaddeviceComponent
+  },
+  {
+    path:'device',
+    component: DeviceComponent
+  },
+  {
+    path:'category',
+    component: CategoryComponent
   },
 ];
 

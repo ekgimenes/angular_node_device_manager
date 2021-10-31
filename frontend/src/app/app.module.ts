@@ -2,17 +2,26 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { CreateComponent } from './create/create.component';
-import { ReadComponent } from './read/read.component';
 import { ServiceComponent } from './service/service.component';
 import {MatButtonModule} from '@angular/material/button';
 import { MainRoutingModule } from './app-routing.module';
+import { CreatecategoryComponent } from './views/createcategory/createcategory.component';
+import { ReadcategoryComponent } from './views/readcategory/readcategory.component';
+import { ReaddeviceComponent } from './views/readdevice/readdevice.component';
+import { DeviceComponent } from './views/device/device.component';
+import { CategoryComponent } from './views/category/category.component';
+import { CreatedeviceComponent } from './views/createdevice/createdevice.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateComponent,
-    ReadComponent,
+    CreatecategoryComponent,
+    ReadcategoryComponent,
+    CreatedeviceComponent,
+    ReaddeviceComponent,
+    DeviceComponent,
+    CategoryComponent,
     ServiceComponent,
     
   ],
@@ -20,12 +29,14 @@ import { MainRoutingModule } from './app-routing.module';
     BrowserModule,
     RouterModule,
     MatButtonModule,
-    MainRoutingModule
+    MainRoutingModule,
+    MatToolbarModule,
   ],
   exports: [
     RouterModule,
     MatButtonModule,
-    BrowserModule
+    BrowserModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
