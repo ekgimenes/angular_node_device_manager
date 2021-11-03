@@ -2,8 +2,20 @@
     <span>Device Manager</span>
   </mat-toolbar>
 <div style="align-items: center;">
-    <button  routerLink='category'>Category Management</button>
-    <button  routerLink='device'>Device Management</button>
+  <mat-tab-group>
+    <mat-tab label="Category Management"> 
+      <div style="align-items: center;">
+        <button  routerLink='createcategory'>New Category</button>
+        <button style="margin-left: 5px;" routerLink='readcategory'>List Categories</button>
+    </div>
+    </mat-tab>
+    <mat-tab label="Device Management"> 
+      <div style="align-items: center;">
+        <button routerLink='createdevice'>New Device</button>
+        <button style="margin-left: 5px;" routerLink='readdevice'>List Devices</button>
+    </div>
+    </mat-tab>
+  </mat-tab-group>
 </div>
 <router-outlet></router-outlet>
 

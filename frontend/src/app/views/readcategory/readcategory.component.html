@@ -1,1 +1,19 @@
-<p>readcategory works!</p>
+<div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource">
+  
+      <!-- Id -->
+      <ng-container matColumnDef="Id">
+        <mat-header-cell *matHeaderCellDef> Id. </mat-header-cell>
+        <mat-cell *matCellDef="let category"> {{category.Id}} </mat-cell>
+      </ng-container>
+  
+      <!-- Name -->
+      <ng-container matColumnDef="CategoryName">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let category"> {{category.CategoryName}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
