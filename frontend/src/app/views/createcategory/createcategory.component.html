@@ -1,1 +1,11 @@
-<p>createcategory works!</p>
+<div>
+    <form [formGroup]= "categoryForm" (ngSubmit) = "submitCategory()" >
+       <div>
+        <input type= "text" class="form-control" formControlName = "CategoryName" placeholder = "Category Name">
+       </div>
+       <br/>
+       <div>
+        <button>Submit</button>
+       </div>
+    </form>
+ </div>

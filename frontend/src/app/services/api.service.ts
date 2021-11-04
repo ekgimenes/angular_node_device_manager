@@ -15,4 +15,9 @@ export class ApiService {
     return this._http.get(`${this.apiUrl}`);
   }
 
+  createCategory(data:any):Observable<any>{
+
+    return this._http.post(`${this.apiUrl}`, data)
+  }
+
 }
