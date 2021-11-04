@@ -44,7 +44,6 @@ app.get("/category", (req, res) =>{
 
 //add new category 
 app.post("/category", (req, res) =>{
-
     let name = req.body.CategoryName;
     let qr = `INSERT INTO CATEGORY SET CategoryName =  '${name}'`
 
@@ -59,8 +58,9 @@ app.post("/category", (req, res) =>{
 
 //delete category 
 app.delete("/category", (req, res) =>{
-
-    let{id}  = req.query;
+    console.log("delete");
+    let id  = req.query.Id;
+    console.log(req.query.Id);
     let qr = `DELETE FROM CATEGORY WHERE Id  ='${id}'`
     db.query(qr, (err, result) =>{
         if(err){

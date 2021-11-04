@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpClientModule} from '@angular/common/http'
+import {HttpClient, HttpClientModule, HttpHeaders, HttpParams} from '@angular/common/http'
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -16,8 +16,18 @@ export class ApiService {
   }
 
   createCategory(data:any):Observable<any>{
-
     return this._http.post(`${this.apiUrl}`, data)
+  }
+
+  deleteCategory(id:any):Observable<any>{
+
+    let httpParams = new HttpParams().set('Id', id);
+    const httpHeaders= new HttpHeaders()
+    .set('content-type', 'application/json')
+    .set('Access-Control-Allow-Origin', '*');
+    let options = { params: httpParams, headers: httpHeaders };
+    return this._http.delete(`${this.apiUrl}`, options);
+   
   }
 
 }

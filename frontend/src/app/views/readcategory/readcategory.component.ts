@@ -7,14 +7,21 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./readcategory.component.css']
 })
 export class ReadcategoryComponent implements OnInit {
-  displayedColumns = ['Id', 'CategoryName']
+  
+  displayedColumns = ['Id', 'CategoryName', 'Delete']
+  dataSource:any;
+  
   constructor(private service : ApiService) { }
 
-  dataSource:any;
+  deleteCategory(id : any, name : any){
+    if(confirm("Are you sure to delete category " + name + "?")) {
+      this.service.deleteCategory(id).subscribe((id)=> {
+      });
+    }
+  }
 
   ngOnInit(): void {
     this.service.getCategories().subscribe((res)=> {
-      console.log(res);
       this.dataSource = res.data;
     });
   }
