@@ -2,7 +2,7 @@
     <span>Device Manager</span>
   </mat-toolbar>
 <div style="align-items: center;">
-  <mat-tab-group>
+  <mat-tab-group (focusChange)="tabChanged($event)">
     <mat-tab label="Category Management"> 
       <div style="align-items: center;">
         <button  routerLink='createcategory'>New Category</button>
