@@ -1,9 +1,12 @@
 <div>
     <form [formGroup]= "categoryForm" (ngSubmit) = "submitCategory()" >
        <div>
+        <br>
+           <span>Name: </span>
+           <br/>
         <input type= "text" class="form-control" formControlName = "CategoryName" placeholder = "Category Name">
        </div>
-       <br/>
+       <br>
        <div>
         <button>Submit</button>
        </div>
