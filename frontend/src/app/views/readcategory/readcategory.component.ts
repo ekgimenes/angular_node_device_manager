@@ -14,8 +14,9 @@ export class ReadcategoryComponent implements OnInit {
   constructor(private service : ApiService) { }
 
   deleteCategory(id : any, name : any){
-    if(confirm("Are you sure to delete category " + name + "?")) {
+    if(confirm("Are you sure to delete Category " + name + "?")) {
       this.service.deleteCategory(id).subscribe((id)=> {
+        this.ngOnInit();
       });
     }
   }
@@ -23,6 +24,7 @@ export class ReadcategoryComponent implements OnInit {
   ngOnInit(): void {
     this.service.getCategories().subscribe((res)=> {
       this.dataSource = res.data;
+       console.log(this.dataSource)
     });
   }
 }
